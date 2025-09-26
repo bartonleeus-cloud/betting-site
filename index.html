@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mkeka Daily Master Templates - Canva Reference</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton:wght@400&family=League+Spartan:wght@700,800,900&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Roboto:wght@300,400,500,700,900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #1a1a1a;
+            font-family: 'Roboto', sans-serif;
+            padding: 20px;
+        }
+
+        .master-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .tab-button {
+            background: #2a2a2a;
+            color: #FFD100;
+            border: 2px solid #1EB53A;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-family: 'League Spartan', sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button.active {
+            background: #1EB53A;
+            color: white;
+        }
+
+        .tab-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30,181,58,0.3);
+        }
+
+        .template-page {
+            display: none;
+            width: 360px;
+            height: 640px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            position: relative;
+            transform: scale(0.9);
+        }
+
+        .template-page.active {
+            display: block;
+        }
+
+        /* GRID SYSTEM - 12 columns, 24px margins, 20px gutters */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 24px repeat(12, 1fr) 24px;
+            grid-gap: 0 20px;
+            height: 100%;
+            padding: 0;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            height: 60px; /* Scaled down from 180px */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+        }
+
+        .content-area {
+            grid-column: 2 / -2;
+            display: flex;
+            flex-direction: column;
+            gap: 8px; /* Scaled down from 24px */
+        }
+
+        .footer {
+            grid-column: 1 / -1;
+            height: 53px; /* Scaled down from 160px */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 24px;
+            margin-top: auto;
+        }
+
+        /* ESPN CLEAN STYLE */
+        .espn-page {
+            background: white;
+            color: #000;
+        }
+
+        .espn-header {
+            border-bottom: 1px solid #E2E2E2;
+        }
+
+        .espn-logo {
+            font-family: 'Anton', sans-serif;
+            font-size: 24px; /* Scaled from 64px */
+            color: #000;
+        }
+
+        .espn-tagline {
+            font-family: 'Montserrat', sans-serif;
+            font-style: italic;
+            font-size: 12px; /* Scaled from 28px */
+            color: #1EB53A;
+        }
+
+        .espn-date {
+            color: #666;
+            font-size: 12px;
+        }
+
+        .match-row {
+            display: grid;
+            grid-template-columns: 80px 1fr 80px;
+            align-items: center;
+            height: 40px; /* Scaled from 120px */
+            padding: 8px 0;
+            border-bottom: 1px solid #E2E2E2;
+        }
+
+        .team-logos {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .team-logo {
+            width: 18px; /* Scaled from 56px */
+            height: 18px;
+            background: #1EB53A;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 8px;
+            font-weight: bold;
+        }
+
+        .vs-text {
+            font-size: 10px;
+            color: #999;
+            margin: 0 4px;
+        }
+
+        .match-info {
+            padding: 0 12px;
+        }
+
+        .match-teams {
+            font-size: 12px; /* Scaled from 34px */
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 2px;
+        }
+
+        .market-type {
+            font-size: 9px; /* Scaled from 26px */
+            color: #666;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .odds-section {
+            text-align: right;
+        }
+
+        .pick-text {
+            font-size: 10px; /* Scaled from 34px */
+            font-weight: bold;
+            color: #1EB53A;
+            margin-bottom: 2px;
+        }
+
+        .odds-pill {
+            background: #FFD100;
+            color: #000;
+            padding: 4px 8px; /* Scaled from 12px */
+            border-radius: 3px; /* Scaled from 6px */
+            font-size: 12px; /* Scaled from 36px */
+            font-weight: bold;
+            border: 1px solid #FFD100;
+        }
+
+        .espn-footer {
+            background: #f8f8f8;
+            border-top: 1px solid #E2E2E2;
+            font-size: 9px; /* Scaled from 26px */
+            color: #666;
+            position: relative;
+        }
+
+        .espn-footer::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #1EB53A, #FFD100, #00A3DD, #1EB53A);
+        }
+
+        /* FLASHY BETTING STYLE */
+        .flashy-page {
+            background: linear-gradient(18deg, #1EB53A, #FFD100);
+            color: white;
+            position: relative;
+        }
+
+        .flashy-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 20px,
+                rgba(0,0,0,0.08) 20px,
+                rgba(0,0,0,0.08) 40px
+            );
+            pointer-events: none;
+        }
+
+        .flashy-header {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .flashy-logo {
+            font-family: 'Anton', sans-serif;
+            font-size: 26px;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            margin-bottom: 2px;
+        }
+
+        .flashy-tagline {
+            font-family: 'Montserrat', sans-serif;
+            font-style: italic;
+            font-size: 11px;
+            color: #000;
+            text-shadow: 0 1px 3px rgba(255,255,255,0.3);
+        }
+
+        .flashy-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .flashy-match-row {
+            background: #101010;
+            border-radius: 8px;
+            padding: 8px;
+            margin-bottom: 6px;
+            display: grid;
+            grid-template-columns: 60px 1fr 70px;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .flashy-team-logos {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .flashy-team-logo {
+            width: 20px;
+            height: 20px;
+            background: #FFD100;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 8px;
+            font-weight: bold;
+        }
+
+        .flashy-match-info {
+            padding: 0 8px;
+        }
+
+        .flashy-teams {
+            font-size: 11px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 2px;
+        }
+
+        .flashy-market {
+            font-size: 8px;
+            color: #BDBDBD;
+            text-transform: uppercase;
+        }
+
+        .flashy-odds-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 3px;
+        }
+
+        .flashy-odds {
+            background: #FFD100;
+            color: #000;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 900;
+            border: 2px solid #000;
+            box-shadow: 0 0 15px rgba(255,209,0,0.5);
+        }
+
+        .flashy-pick {
+            background: #1EB53A;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 9px;
+            font-weight: bold;
+        }
+
+        .flashy-footer {
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            border-radius: 15px;
+            margin: 0 12px 12px;
+            padding: 8px;
+        }
+
+        .flashy-footer-text {
+            color: #FFD100;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        /* MINIMAL TICKET STYLE */
+        .minimal-page {
+            background: #F4F4F4;
+            color: #000;
+        }
+
+        .minimal-header {
+            border-bottom: 2px dashed #ccc;
+            text-align: center;
+        }
+
+        .minimal-logo {
+            font-family: 'Anton', sans-serif;
+            font-size: 20px;
+            color: #000;
+            margin-bottom: 2px;
+        }
+
+        .minimal-tagline {
+            font-family: 'Montserrat', sans-serif;
+            font-style: italic;
+            font-size: 10px;
+            color: #1EB53A;
+        }
+
+        .minimal-match-row {
+            display: grid;
+            grid-template-columns: 40px 1fr auto auto;
+            align-items: center;
+            height: 35px;
+            padding: 6px 0;
+            border-bottom: 1px solid #ddd;
+            font-size: 10px;
+        }
+
+        .minimal-team-logo {
+            width: 14px;
+            height: 14px;
+            background: #1EB53A;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 6px;
+            font-weight: bold;
+        }
+
+        .minimal-match-info .match-teams {
+            font-size: 10px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .minimal-match-info .market-type {
+            font-size: 8px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .minimal-pick {
+            font-weight: bold;
+            color: #1EB53A;
+            font-size: 9px;
+            margin-right: 8px;
+        }
+
+        .minimal-odds {
+            font-weight: bold;
+            color: #000;
+            font-size: 10px;
+        }
+
+        .minimal-footer {
+            background: linear-gradient(90deg, #1EB53A, #FFD100);
+            color: white;
+            text-align: center;
+            border-radius: 12px;
+            margin: 8px 12px 0;
+            padding: 8px;
+            position: relative;
+        }
+
+        .stamp {
+            font-family: 'Anton', sans-serif;
+            font-size: 14px;
+            margin-bottom: 2px;
+        }
+
+        .stamp-tagline {
+            font-family: 'Montserrat', sans-serif;
+            font-style: italic;
+            font-size: 8px;
+        }
+
+        /* Controls */
+        .controls {
+            text-align: center;
+            margin: 30px 0;
+            color: #FFD100;
+        }
+
+        .size-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .size-button {
+            background: #2a2a2a;
+            color: #00A3DD;
+            border: 1px solid #00A3DD;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .size-button:hover {
+            background: #00A3DD;
+            color: white;
+        }
+
+        .specs {
+            background: #2a2a2a;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            border: 1px solid #1EB53A;
+        }
+
+        .specs h3 {
+            color: #FFD100;
+            font-family: 'League Spartan', sans-serif;
+            margin-bottom: 15px;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            color: #ccc;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .json-data {
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            color: #1EB53A;
+            border: 1px solid #333;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="master-container">
+        <h1 style="text-align: center; color: #FFD100; font-family: 'Anton', sans-serif; font-size: 36px; margin-bottom: 10px;">MKEKA DAILY MASTER</h1>
+        <p style="text-align: center; color: #1EB53A; font-family: 'Montserrat', sans-serif; font-style: italic; margin-bottom: 30px;">Ushindi Lazima - Professional Canva Templates</p>
+
+        <div class="page-tabs">
+            <button class="tab-button active" onclick="showPage('espn')">ESPN CLEAN</button>
+            <button class="tab-button" onclick="showPage('flashy')">FLASHY BETTING</button>
+            <button class="tab-button" onclick="showPage('minimal')">MINIMAL TICKET</button>
+        </div>
+
+        <!-- ESPN PAGE -->
+        <div class="template-page espn-page active" id="espn-page">
+            <div class="grid-container">
+                <div class="header espn-header">
+                    <div>
+                        <div class="espn-logo">MKEKA DAILY</div>
+                        <div class="espn-tagline">Ushindi Lazima</div>
+                    </div>
+                    <div class="espn-date">Today's Picks</div>
+                </div>
+                
+                <div class="content-area">
+                    <div class="match-row">
+                        <div class="team-logos">
+                            <div class="team-logo">T</div>
+                            <span class="vs-text">vs</span>
+                            <div class="team-logo">N</div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-teams">Toulouse FC vs FC Nantes</div>
+                            <div class="market-type">1X2</div>
+                        </div>
+                        <div class="odds-section">
+                            <div class="pick-text">Away</div>
+                            <div class="odds-pill">1.72</div>
+                        </div>
+                    </div>
+
+                    <div class="match-row">
+                        <div class="team-logos">
+                            <div class="team-logo">L</div>
+                            <span class="vs-text">vs</span>
+                            <div class="team-logo">M</div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-teams">FC Lorient vs AS Monaco</div>
+                            <div class="market-type">1X2</div>
+                        </div>
+                        <div class="odds-section">
+                            <div class="pick-text">Away</div>
+                            <div class="odds-pill">1.62</div>
+                        </div>
+                    </div>
+
+                    <div class="match-row">
+                        <div class="team-logos">
+                            <div class="team-logo">S</div>
+                            <span class="vs-text">vs</span>
+                            <div class="team-logo">M</div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-teams">Strasbourg vs Marseille</div>
+                            <div class="market-type">TOTAL</div>
+                        </div>
+                        <div class="odds-section">
+                            <div class="pick-text">Under 3.5</div>
+                            <div class="odds-pill">1.44</div>
+                        </div>
+                    </div>
+
+                    <div class="match-row">
+                        <div class="team-logos">
+                            <div class="team-logo">T</div>
+                            <span class="vs-text">vs</span>
+                            <div class="team-logo">W</div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-teams">Tottenham vs Wolves</div>
+                            <div class="market-type">1X2</div>
+                        </div>
+                        <div class="odds-section">
+                            <div class="pick-text">Home</div>
+                            <div class="odds-pill">1.48</div>
+                        </div>
+                    </div>
+
+                    <div class="match-row">
+                        <div class="team-logos">
+                            <div class="team-logo">F</div>
+                            <span class="vs-text">vs</span>
+                            <div class="team-logo">S</div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-teams">Forest vs Sunderland</div>
+                            <div class="market-type">1X2</div>
+                        </div>
+                        <div class="odds-section">
+                            <div class="pick-text">Home</div>
+                            <div class="odds-pill">1.78</div>
+                        </div>
+                    </div>
+
+                    <div class="match-row">
+                        <div class="team-logos">
+                            <div class="team-logo">L</div>
+                            <span class="vs-text">vs</span>
+                            <div class="team-logo">B</div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-teams">Leeds vs Bournemouth</div>
+                            <div class="market-type">DOUBLE CHANCE</div>
+                        </div>
+                        <div class="odds-section">
+                            <div class="pick-text">X2</div>
+                            <div class="odds-pill">1.41</div>
+                        </div>
+                    </div>
+
+                    <div class="match-row">
+                        <div class="team-logos">
+                            <div class="team-logo">P</div>
+                            <span class="vs-text">vs</span>
+                            <div class="team-logo">L</div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-teams">Palace vs Liverpool</div>
+                            <div class="market-type">TOTAL</div>
+                        </div>
+                        <div class="odds-section">
+                            <div class="pick-text">Under 3.5</div>
+                            <div class="odds-pill">1.45</div>
+                        </div>
+                    </div>
+
+                    <div class="match-row">
+                        <div class="team-logos">
+                            <div class="team-logo">C</div>
+                            <span class="vs-text">vs</span>
+                            <div class="team-logo">B</div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-teams">Chelsea vs Brighton</div>
+                            <div class="market-type">1X2</div>
+                        </div>
+                        <div class="odds-section">
+                            <div class="pick-text">Home</div>
+                            <div class="odds-pill">1.78</div>
+                        </div>
+                    </div>
+
+                    <div class="match-row">
+                        <div class="team-logos">
+                            <div class="team-logo">C</div>
+                            <span class="vs-text">vs</span>
+                            <div class="team-logo">I</div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-teams">Cagliari vs Inter</div>
+                            <div class="market-type">1X2</div>
+                        </div>
+                        <div class="odds-section">
+                            <div class="pick-text">Away</div>
+                            <div class="odds-pill">1.55</div>
+                        </div>
+                    </div>
+
+                    <div class="match-row">
+                        <div class="team-logos">
+                            <div class="team-logo">C</div>
+                            <span class="vs-text">vs</span>
+                            <div class="team-logo">C</div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-teams">Como vs Cremonese</div>
+                            <div class="market-type">1X2</div>
+                        </div>
+                        <div class="odds-section">
+                            <div class="pick-text">Home</div>
+                            <div class="odds-pill">1.46</div>
+                        </div>
+                    </div>
+
+                    <div class="match-row">
+                        <div class="team-logos">
+                            <div class="team-logo">J</div>
+                            <span class="vs-text">vs</span>
+                            <div class="team-logo">A</div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-teams">Juventus vs Atalanta</div>
+                            <div class="market-type">BTTS</div>
+                        </div>
+                        <div class="odds-section">
+                            <div class="pick-text">Yes</div>
+                            <div class="odds-pill">1.86</div>
+                        </div>
+                    </div>
+
+                    <div class="match-row">
+                        <div class="team-logos">
+                            <div class="team-logo">A</div>
+                            <span class="vs-text">vs</span>
+                            <div class="team-logo">R</div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-teams">Atletico vs Real Madrid</div>
+                            <div class="market-type">BTTS</div>
+                        </div>
+                        <div class="odds-section">
+                            <div class="pick-text">Yes</div>
+                            <div class="odds-pill">1.57</div>
+                        </div>
+                    </div>
+
+                    <div class="match-row">
+                        <div class="team-logos">
+                            <div class="team-logo">G</div>
+                            <span class="vs-text">vs</span>
+                            <div class="team-logo">L</div>
+                        </div>
+                        <div class="match-info">
+                            <div class="match-teams">Getafe vs Levante</div>
+                            <div class="market-type">1X2</div>
+                        </div>
+                        <div class="odds-section">
+                            <div class="pick-text">Home</div>
+                            <div class="odds-pill">2.08</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer espn-footer">
+                    <div>Min Odds: 1.50 | Combo Boost ⚡</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FLASHY PAGE -->
+        <div class="template-page flashy-page" id="flashy-page">
+            <div class="grid-container">
+                <div class="header flashy-header">
+                    <div class="flashy-logo">MKEKA DAILY</div>
+                    <div class="flashy-tagline">Ushindi Lazima</div>
+                    <div style="font-size: 8px; color: rgba(255,255,255,0.8); margin-top: 4px;">⚡ Premium Tips ⚡</div>
+                </div>
+                
+                <div class="content-area flashy-content">
+                    <div class="flashy-match-row">
+                        <div class="flashy-team-logos">
+                            <div class="flashy-team-logo">T</div>
+                            <div class="flashy-team-logo">N</div>
+                        </div>
+                        <div class="flashy-match-info">
+                            <div class="flashy-teams">Toulouse vs Nantes</div>
+                            <div class="flashy-market">1X2</div>
+                        </div>
+                        <div class="flashy-odds-section">
+                            <div class="flashy-odds">1.72</div>
+                            <div class="flashy-pick">Away</div>
+                        </div>
+                    </div>
+
+                    <div class="flashy-match-row">
+                        <div class="flashy-team-logos">
+                            <div class="flashy-team-logo">L</div>
+                            <div class="flashy-team-logo">M</div>
+                        </div>
+                        <div class="flashy-match-info">
+                            <div class="flashy-teams">Lorient vs Monaco</div>
+                            <div class="flashy-market">1X2</div>
+                        </div>
+                        <div class="flashy-odds-section">
+                            <div class="flashy-odds">1.62</div>
+                            <div class="flashy-pick">Away</div>
+                        </div>
+                    </div>
+
+                    <div class="flashy-match-row">
+                        <div class="flashy-team-logos">
+                            <div class="flashy-team-logo">S</div>
+                            <div class="flashy-team-logo">M</div>
+                        </div>
+                        <div class="flashy-match-info">
+                            <div class="flashy-teams">Strasbourg vs Marseille</div>
+                            <div class="flashy-market">TOTAL</div>
+                        </div>
+                        <div class="flashy-odds-section">
+                            <div class="flashy-odds">1.44</div>
+                            <div class="flashy-pick">U3.5</div>
+                        </div>
+                    </div>
+
+                    <div class="flashy-match-row">
+                        <div class="flashy-team-logos">
+                            <div class="flashy-team-logo">T</div>
+                            <div class="flashy-team-logo">W</div>
+                        </div>
+                        <div class="flashy-match-info">
+                            <div class="flashy-teams">Tottenham vs Wolves</div>
+                            <div class="flashy-market">1X2</div>
+                        </div>
+                        <div class="flashy-odds-section">
+                            <div class="flashy-odds">1.48</div>
+                            <div class="flashy-pick">Home</div>
+                        </div>
+                    </div>
+
+                    <div class="flashy-match-row">
+                        <div class="flashy-team-logos">
+                            <div class="flashy-team-logo">F</div>
+                            <div class="flashy-team-logo">S</div>
+                        </div>
+                        <div class="flashy-match-info">
+                            <div class="flashy-teams">Forest vs Sunderland</div>
+                            <div class="flashy-market">1X2</div>
+                        </div>
+                        <div class="flashy-odds-section">
+                            <div class="flashy-odds">1
